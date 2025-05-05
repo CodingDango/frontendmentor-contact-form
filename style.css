@@ -40,7 +40,7 @@ main {
 
 /*
 =====================================
-Contact Form Classes
+-- Contact Form Classes
 =====================================
 */
 
@@ -58,7 +58,7 @@ fieldset {
     border: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 fieldset legend 
@@ -68,4 +68,43 @@ fieldset legend
     height: 1px;
     opacity: 0;
     white-space: nowrap;
+}
+
+.fieldset-user-info > div:first-of-type,
+.fieldset-query-type > div:first-of-type {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+}
+
+
+.input-label-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fieldset-query-type > div:first-of-type {
+    grid-template-rows: 3rem;
+}
+
+/*
+=====================================
+Fieldset Query Classes
+=====================================
+*/
+
+.fieldset-query-type > div > div > label {
+    height: 100%;
+
+    border: 1px var(--primary-medium-grey) solid;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    font-weight: 500;
+    color: var(--primary-dark-grey)
 }
