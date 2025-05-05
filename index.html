@@ -21,11 +21,14 @@
 
   <main>
     <section>
-      <form action="/submit-contact" method="post">
+      <form class="contact-form" action="/submit-contact" method="post">
         <h2>Contact Us</h2>
+
         <fieldset class="fieldset-user-info">
+
           <legend>Your Information</legend>
-          <div>
+          
+          <div class="fields-grid-row">
             <div class="input-label-group">
               <label for="first-name">First Name</label>
               <input id="first-name" name="first-name" type="text" required>
@@ -49,20 +52,18 @@
 
         <fieldset class="fieldset-query-type">
           <legend>Choose a Query Type</legend>
-          <label>Query Type</label>
-          <div>
-            <div>
+          <div class="input-label-group">
+            <label>Query Type</label>
+            <div class="fields-grid-row">
               <label>
                 <input name="query-type" value="general-enquiry" type="radio" required> General Enquiry 
               </label>
-            </div>
 
-            <div>
               <label>
                 <input name="query-type" value="support-request" type="radio"> Suport Request 
               </label>
+              <!-- Please select a query type -->
             </div>
-            <!-- Please select a query type -->
           </div>
         </fieldset>
 
@@ -70,7 +71,7 @@
           <legend>Create A Message To Send</legend>
           <div class="input-label-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" required rows="5"></textarea>
           </div>
           <!-- Message -->
           <!-- This field is required -->
@@ -78,10 +79,9 @@
 
         <fieldset class="fieldset-consent">
           <legend>Terms and Service</legend>
-          <div>
-            <label for="terms-and-service">I consent to being contacted by the team To submit this form, please consent to being contacted</label>
-            <input id="terms-and-service" name="consent" type="checkbox" required>
-          </div>
+          <input id="terms-and-service" name="consent" type="checkbox" required>
+          <label for="terms-and-service">I consent to being contacted by the team</label>
+          <!--To submit this form, please consent to being contacted-->
         </fieldset>
     
         <button type="submit">Submit</button>
