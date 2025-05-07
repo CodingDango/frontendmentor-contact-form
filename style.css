@@ -6,18 +6,29 @@
 
 :root {
     --primary-light-green: hsl(148, 38%, 91%);
-    --primary-medium-green: hsl(169, 82%, 27%);
+    --primary-medium-green: hsl(169, 91%, 32%);
+    --primary-dark-green: hsl(168, 78%, 18%);
     --red: hsl(0, 66%, 54%);
 
     --white: hsl(0, 0%, 100%);
     --primary-medium-grey: hsl(186, 15%, 59%);
     --primary-dark-grey: hsl(187, 24%, 22%);
+
+    --outline-focus-color: #1CC52C;
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 body {
@@ -53,31 +64,112 @@ section {
 */
 
 .contact-form {
-    background-color: var(--white);
-    padding: 40px 30px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: start;    
-    gap: 1.5rem;
-
     width: min(800px, 100%);
     height: auto;
 
     border-radius: 10px;
+    padding: 40px 30px;
+    background-color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;    
+    gap: 1.5rem;
 }
 
 .contact-form h2 {
     font-size: 2rem;
 }
 
+
+/*
+=====================================
+ Input Classes
+=====================================
+*/
+
 .contact-form button {
+    height: 3rem;
+
     color: white;
     background-color: var(--primary-medium-green);
     border: 0;
-    height: 3rem;
     border-radius: 10px;
+
+    transition: 0.25s background-color ease-out;
+    cursor: pointer;
 }
+
+.contact-form .input-label-group > label {
+    font-weight: 500;
+    color: var(--primary-dark-grey);
+}
+
+.contact-form .input-label-group > label::after,
+.contact-form .fieldset-consent label::after  {
+    content: "*";
+    position: relative;
+    left: 0.5rem;
+    color: var(--primary-medium-green);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    border-radius: 5px;
+    padding: 1rem;
+    border: 1px solid var(--primary-medium-grey);
+    transition: 0.25s border ease-out;
+}
+
+
+/*
+=====================================
+ Input Interactivity
+=====================================
+*/
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+    border-color: var(--primary-medium-green);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-medium-green);
+}
+
+button:hover {
+    background-color: var(--primary-dark-green);
+}
+
+button:focus {
+    outline: none;
+    background-color: var(--primary-dark-green);
+}
+
+
+/*
+=====================================
+ Input Error Messages
+=====================================
+*/
+
+.error-message {
+    color: var(--red);
+
+}
+
+
+
+/*
+=====================================
+Individual Fieldset Classes
+=====================================
+*/
 
 fieldset {
     border: 0;
@@ -107,24 +199,12 @@ fieldset legend
     gap: 0.75rem;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-    border-radius: 5px;
-    padding: 1rem;
-    border: 1px solid var(--primary-medium-green);
-}
-
 
 /*
 =====================================
-Fieldset Query Classes
+Fieldset Query Type Classes
 =====================================
 */
-
-.fieldset-query-type label:first-of-type {
-    position: relative;
-}
 
 .fieldset-query-type .fields-grid-row {
     grid-template-rows: 3rem;
@@ -132,22 +212,58 @@ Fieldset Query Classes
 
 .fieldset-query-type .fields-grid-row label {
     height: 100%;
+    cursor: pointer;
 
     border: 1px var(--primary-medium-grey) solid;
     border-radius: 10px;
 
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 1rem;
+    padding-left: 2rem;
 
     font-weight: 500;
     color: var(--primary-dark-grey);
+
+    transition: 0.25s all;
 }
+
+.fieldset-query-type .fields-grid-row label:focus-within {
+    border-color: var(--primary-medium-green);
+    background-color: var(--primary-light-green);
+}
+
+.fieldset-query-type .fields-grid-row label:hover {
+    border-color: var(--primary-medium-green);
+}
+
+.fieldset-query-type input {
+    outline: none;
+    accent-color: var(--primary-medium-green);
+    scale: 1.2;
+}
+
+
+/*
+=====================================
+Fieldset Consent Classes
+=====================================
+*/
 
 .fieldset-consent {
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
-    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.fieldset-consent div {
+    display: flex;
+    gap: 1rem;
+}
+
+.fieldset-consent input {
+    accent-color: var(--primary-medium-green);
+    scale: 1.3;
 }

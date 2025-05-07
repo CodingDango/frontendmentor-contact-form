@@ -5,83 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Contact form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-
   <link href="./style.css" rel="stylesheet">
-
+  <title>Frontend Mentor | Contact form</title>
 </head>
 <body>
-
   <main>
     <section>
-      <form class="contact-form" action="/submit-contact" method="post">
+      <form class="contact-form" action="#" method="post" novalidate>
         <h2>Contact Us</h2>
 
+        <!-- Field User Info -->
         <fieldset class="fieldset-user-info">
-
           <legend>Your Information</legend>
-          
+
           <div class="fields-grid-row">
             <div class="input-label-group">
+              <!--"This field is required"-->
+
               <label for="first-name">First Name</label>
-              <input id="first-name" name="first-name" type="text" required>
-              <!-- This field is required -->
+              <input id="first-name" name="first-name" type="text">
+              <span id="first-name-error" class="error-message"></span>
+
             </div>
 
             <div class="input-label-group">
+              <!--"This field is required"-->
               <label for="last-name">Last Name</label>
-              <input id="last-name" name="last-name" type="text" required>
-              <!-- This field is required -->
+              <input id="last-name" name="last-name" type="text">
+              <span id="last-name-error" class="error-message"></span>
+
             </div>
           </div>
 
-          <div class="input-label-group">
-            <label for="email-address">Email Address</label>
-            <input id="email-address" name="email-address"type="email" required>
+          <div class="input-label-group" data-error="my custom error message">
             <!-- Please enter a valid email address -->
             <!-- This field is required -->
-          </di>
-      </fieldset>
+            <label for="email-address">Email Address</label>
+            <input id="email-address" name="email-address"type="email">
+            <span id="email-address-error" class="error-message"></span>
 
-        <fieldset class="fieldset-query-type">
-          <legend>Choose a Query Type</legend>
-          <div class="input-label-group">
-            <label>Query Type</label>
-            <div class="fields-grid-row">
-              <label>
-                <input name="query-type" value="general-enquiry" type="radio" required> General Enquiry 
-              </label>
-
-              <label>
-                <input name="query-type" value="support-request" type="radio"> Suport Request 
-              </label>
-              <!-- Please select a query type -->
-            </div>
           </div>
         </fieldset>
 
+        <!-- Field Query Type -->
+        <fieldset class="fieldset-query-type">
+          <legend>Choose a Query Type</legend>
+
+          <!--  Please select a query type -->
+          <div class="input-label-group">
+            <label>Query Type</label>
+            <div class="fields-grid-row">
+              
+              <label>
+                <input name="query-type" value="general-enquiry" type="radio">
+                General Enquiry 
+              </label>
+
+              <label>
+                <input name="query-type" value="support-request" type="radio">
+                Suport Request 
+              </label>
+            </div>
+
+            <span id="query-types-error" class="error-message"></span>
+          </div>
+        </fieldset>
+
+        <!-- Field Messaage -->
         <fieldset class="fieldset-message">
           <legend>Create A Message To Send</legend>
           <div class="input-label-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" required rows="5"></textarea>
+            <textarea id="message" name="message" rows="5"></textarea>
+            <span id="message-error" class="error-message"></span>
           </div>
-          <!-- Message -->
-          <!-- This field is required -->
         </fieldset>
 
+        <!-- Field Terms and conditions -->
         <fieldset class="fieldset-consent">
           <legend>Terms and Service</legend>
-          <input id="terms-and-service" name="consent" type="checkbox" required>
-          <label for="terms-and-service">I consent to being contacted by the team</label>
-          <!--To submit this form, please consent to being contacted-->
+          <div>
+            <input id="terms-and-service" name="consent" type="checkbox">
+            <label for="terms-and-service">I consent to being contacted by the team</label>
+          </div>
+          <span id="terms-and-service-error" class="error-message"></span>
         </fieldset>
     
         <button type="submit">Submit</button>
@@ -91,9 +98,14 @@
     </section>
   </main>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </footer>
+
+  <script src="./script.js">
+  </script>
 </body>
 </html>
