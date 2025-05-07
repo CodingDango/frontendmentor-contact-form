@@ -1,43 +1,42 @@
-const fields_data = {
+const fields_data = [
 
-    "input_firstname" : {
+    {
         "input" : document.getElementById("first-name"), 
         "span" : document.getElementById("first-name-error"),
         "emptyMsg" : "This field is required"
     }, 
 
-    "input_lastname" : {
+    {
       "input" : document.getElementById("last-name"), 
       "span" : document.getElementById("last-name-error"), 
       "emptyMsg" : "This field is required"
     },
 
-    "input_email"  : {
+    {
       "input" : document.getElementById("email-address"), 
       "span" : document.getElementById("email-address-error"), 
       "emptyMsg" : "This field is required",
       "invalidMsg" : "Please input a valid email address",
     },
 
-    "input_query_types"  : {
+    {
       "input" : document.querySelectorAll("input[name='query-type']"), 
       "span" : document.getElementById("query-types-error"), 
       "emptyMsg" : "Please select a query type.", 
     },
 
-    "textarea_message"  : {
+    {
       "input" : document.getElementById("message"), 
       "span" : document.getElementById("message-error"), 
       "emptyMsg" : "This field is required",
     },
 
-    "input_consent"  : {
+    {
       "input" : document.getElementById("terms-and-service"), 
       "span" : document.getElementById("terms-and-service-error"), 
       "emptyMsg" : "To submit this form, please consent to being contacted",
     },
-
-}
+]
 
 function isValidEmail(emailString)
 { 
@@ -53,17 +52,59 @@ function isEmpty(string)
     return string.trim() === "";
 }
 
-function validate_form()
+function showError(span, span_msg, input)
+{
+    if (span)
+    {   
+        if (span_msg)
+            span.innerText = span_msg;
+        else
+            span.innerText = "This field is required.";
+    
+        span.style.display = "block";
+    }
+    
+    if (input)
+        input.classList.add("error-state");
+}
+
+function clearError(span, input)
+{
+    if (span)
+    {
+        span.innerText = "";
+        span.style.display = "none";
+    }
+
+    if (input instanceof NodeList)
+    {
+        for (const elem of input)
+        {
+            if (elem.classList.contains("error-state"))
+                elem.classList.remove("error-state");
+        } 
+    }
+
+    else if (input.classList.contains("error-state"))
+        input.classList.remove("error-state");
+}
+
+
+function validateForm()
 {
     let isFormValid = true;
 
-    for (const key in fields_data)
+    for (const field of fields_data)
     { 
-        const input = fields_data[key]["input"];
-        const error_span = fields_data[key]["span"];
+        const input = field["input"];
+        const error_span = field["span"];
+        const empty_msg = field["emptyMsg"];
+        const invalid_msg = field["invalidMsg"];
 
-        error_span.innerText = "";
-        error_span.style.display = "none";
+        clearError(error_span, input);
+
+        if (!input || !error_span)
+            return false;
 
         // Checks if it is a list
         if (input instanceof NodeList)
@@ -81,24 +122,21 @@ function validate_form()
 
             if (!hasSelected)
             {
-                error_span.innerText = fields_data[key]["emptyMsg"]; 
-                error_span.style.display = "block";
+                showError(error_span, empty_msg, null);
                 isFormValid = false;
             }
         }
 
         else if (input instanceof HTMLTextAreaElement && isEmpty(input.value))
         {
-            error_span.innerText = fields_data[key]["emptyMsg"];
-            error_span.style.display = "block";
+            showError(error_span, empty_msg, input);
             isFormValid = false;
         }
 
         // If input type is plain old text.
         else if (input.type == "text" && isEmpty(input.value))
         {
-            error_span.innerText = fields_data[key]["emptyMsg"];
-            error_span.style.display = "block";
+            showError(error_span, empty_msg, input);
             isFormValid = false;
         }
 
@@ -106,15 +144,13 @@ function validate_form()
         {
             if (isEmpty(input.value))
             {
-                fields_data[key]["span"].innerText = fields_data[key]["emptyMsg"];
-                error_span.style.display = "block";
+                showError(error_span, empty_msg, input);
                 isFormValid = false;
             }
 
             else if (!isValidEmail(input.value))
             {
-                fields_data[key]["span"].innerText = fields_data[key]["invalidMsg"];
-                error_span.style.display = "block";
+                showError(error_span, invalid_msg, input);
                 isFormValid = false;
             }
         }
@@ -123,8 +159,7 @@ function validate_form()
         {
             if (!input.checked)
             {
-                error_span.innerText = fields_data[key]["emptyMsg"];
-                error_span.style.display = "block";
+                showError(error_span, empty_msg, null);
                 isFormValid = false;
             }
         }
@@ -137,9 +172,12 @@ function validate_form()
 const contact_form = document.querySelector(".contact-form");
 
 contact_form.addEventListener("submit", function(event) {
-    if (!validate_form())
+    if (!validateForm())
     {
-        console.log("incorrect hmm..\n");
         event.preventDefault();
+    }
+    else
+    {
+        // Do a thank you animation later.
     }
 });
