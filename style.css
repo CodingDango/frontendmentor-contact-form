@@ -120,6 +120,7 @@ textarea {
     padding: 1rem;
     border: 1px solid var(--primary-medium-grey);
     transition: 0.25s border ease-out;
+    resize: none;
 }
 
 
