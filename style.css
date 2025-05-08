@@ -84,6 +84,7 @@ footer {
 
 .contact-form h2 {
     font-size: 2rem;
+    font-weight: 700;
 }
 
 
@@ -292,9 +293,9 @@ Interactivity..
 
 @media (max-width: 376px) {
     .contact-form {
-        padding: 40px 20px;
+        padding: 20px 20px;
     }
-
+    
     .fieldset-query-type .fields-grid-row label {
         padding-left: 1rem;
     }
