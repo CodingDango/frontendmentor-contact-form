@@ -46,6 +46,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px;
 }
 
 section {
@@ -56,6 +57,10 @@ section {
     align-items: center;
 }
 
+footer {
+    
+    
+}
 
 /*
 =====================================
@@ -121,6 +126,7 @@ textarea {
     border: 1px solid var(--primary-medium-grey);
     transition: 0.25s border ease-out;
     resize: none;
+    width: 100%;
 }
 
 
@@ -214,7 +220,7 @@ Fieldset Query Type Classes
 }
 
 .fieldset-query-type .fields-grid-row label {
-    height: 100%;
+    height: 3rem;
     cursor: pointer;
 
     border: 1px var(--primary-medium-grey) solid;
@@ -269,4 +275,28 @@ Fieldset Consent Classes
 .fieldset-consent input {
     accent-color: var(--primary-medium-green);
     scale: 1.3;
+}
+
+/*
+=====================================
+Interactivity..
+=====================================
+*/
+@media (max-width: 576px) {
+    .fields-grid-row {
+        display: flex;
+        flex-direction: column;
+        gap: inherit;   
+    }
+}
+
+@media (max-width: 376px) {
+    .contact-form {
+        padding: 40px 20px;
+    }
+
+    .fieldset-query-type .fields-grid-row label {
+        padding-left: 1rem;
+    }
+     
 }
