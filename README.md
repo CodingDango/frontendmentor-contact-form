@@ -1,14 +1,26 @@
-# TODO's
+# Frontend Mentor - Contact form solution
 
-<!-- 1. Reformat and clean HTML
-    - Remove redundant DIV's
-    - Add class names 
-    - Add Whitespace between nested elements
-    
-2. Reformat and Clean CSS
-    - Use more target class names
-    - Seperate sections using comments
-    - Make it target contact.form rather than global elements. -->
+This is a solution to the [Contact form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-3. Set up some error messages for the user using JS. (Im not sure how to do this part yet.)
-4. After successfully submitting the form, It should thank the user with an ending message (Uses animation)
+
+## Screenshot
+
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5
+- CSS
+- Javascript
+
+### What I learned
+
+I learned more about dom manipulation. For instance, finding the closest element with element.closest(), 
+inserting HTML Elements using insertAdjacent(), and preventing the submission of a form through event.preventDefault().
