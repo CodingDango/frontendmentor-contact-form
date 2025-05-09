@@ -245,7 +245,7 @@ Component: Terms and service consent fieldset (Inside Contact Form)
     gap: 0.75rem;
 }
 
-.consent-group div {
+.consent-group span {
     display: flex;
     gap: 1rem;
 }
