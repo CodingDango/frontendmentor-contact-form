@@ -38,14 +38,62 @@ const fields_data = [
     },
 ]
 
-function playSuccessAnimation()
+function getErrorClassString(input_elem)
 {
+    let error_class_str = "";
+
+    if (input_elem instanceof HTMLTextAreaElement)
+        error_class_str = "form-field__textarea--error";
+
+    else if (input_elem.type == "text" || input_elem.type == "email")
+        error_class_str = "form-field__input-text--error";
+    
+    else if (input_elem.type == "checkbox")
+        error_class_str = "form-field__input-checkbox--error"; 
+    
+    else if (input_elem.type == "radio")
+        error_class_str = "form-field__input-radio--error" ;
+
+    else
+        error_class_str = "form-field_input-element--error"; // Default to an error class
+
+    return error_class_str;
+}
+
+function playSuccessAnimations()
+{
+    // Check if it already exists
+    if (document.querySelector(".success-msg"))
+        return;
+
+    // Confetti
     confetti({
         particleCount: 100,
         angle: 270,
         spread: 180,
         origin: { y: -0.1 },
         startVelocity: 35
+    });
+
+    // Success message card
+    let success_msg_card_html = `
+    <aside class="success-msg">
+      <span class="success-msg__head">
+        <span class="success-msg__head-content">
+          <img src="./assets/images/icon-success-check.svg">
+          <p>Message Sent!</p>
+        </span>
+        <img class="success-msg__close" src="./assets/images/close.webp">
+      </span>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </aside>`
+
+    document.querySelector("main").insertAdjacentHTML("afterbegin", success_msg_card_html);
+
+    document.querySelector("main")
+    .querySelector(".success-msg__close")
+    .addEventListener("click", function(){
+        this.closest(".success-msg").remove();
     });
 }
 
@@ -76,7 +124,7 @@ function showError(span, span_msg, input)
     }
     
     if (input)
-        input.classList.add("error-state");
+        input.classList.add(getErrorClassString(input));
 }
 
 function clearError(span, input)
@@ -90,16 +138,17 @@ function clearError(span, input)
     if (input instanceof NodeList)
     {
         for (const elem of input)
-        {
-            if (elem.classList.contains("error-state"))
-                elem.classList.remove("error-state");
-        } 
+        {   
+            const error_class_str = getErrorClassString(elem);
+
+            if (elem.classList.contains(error_class_str))
+                elem.classList.remove(error_class_str);
+        }
     }
 
-    else if (input.classList.contains("error-state"))
-        input.classList.remove("error-state");
+    else if (input.classList.contains(getErrorClassString(input)))
+        input.classList.remove(getErrorClassString(input));
 }
-
 
 function validateForm()
 {
@@ -190,8 +239,8 @@ contact_form.addEventListener("submit", function(event) {
     }
     else
     {
-        playSuccessAnimation();
+        playSuccessAnimations();
     }
 });
 
-playSuccessAnimation();
+// playSuccessAnimations();

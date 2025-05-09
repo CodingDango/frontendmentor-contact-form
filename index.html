@@ -10,98 +10,92 @@
 </head>
 <body>
   <main>
-    <section>
-      <form class="contact-form" action="#" method="post" novalidate>
-        <h2>Contact Us</h2>
+    <form class="contact-form" action="#" method="post" novalidate>
+      <h2 class="contact-form__title">Contact Us</h2>
 
-        <!-- Field User Info -->
-        <fieldset class="fieldset-user-info">
+      <!-- Field User Info -->
+      <fieldset class="contact-form__fieldset">
 
-          <legend>Your Information</legend>
+        <legend class="contact-form__fieldset-legend">Your Information</legend>
 
-          <div class="fields-grid-row">
+        <div class="contact-form__fields-grid-row">
 
-            <div class="input-label-group">
-              <label for="first-name">First Name</label>
-              <input id="first-name" name="first-name" type="text">
-              <span id="first-name-error" class="error-message"></span>
-            </div>
-
-            <div class="input-label-group">
-              <label for="last-name">Last Name</label>
-              <input id="last-name" name="last-name" type="text">
-              <span id="last-name-error" class="error-message"></span>
-            </div>
-
+          <div class="form-field">
+            <label for="first-name" class="form-field__label form-field__label--required">First Name</label>
+            <input id="first-name" class="form-field__input-text" name="first-name" type="text">
+            <span id="first-name-error" class="form-field__error-msg"></span>
           </div>
 
-          <div class="input-label-group" data-error="my custom error message">
-            <label for="email-address">Email Address</label>
-            <input id="email-address" name="email-address"type="email">
-            <span id="email-address-error" class="error-message"></span>
+          <div class="form-field">
+            <label for="last-name" class="form-field__label form-field__label--required">Last Name</label>
+            <input id="last-name" class="form-field__input-text" name="last-name" type="text">
+            <span id="last-name-error" class="form-field__error-msg"></span>
           </div>
 
-        </fieldset>
+        </div>
 
-        <!-- Field Query Type -->
-        <fieldset class="fieldset-query-type">
+        <div class="form-field">
+          <label for="email-address" class="form-field__label form-field__label--required">Email Address</label>
+          <input id="email-address" class="form-field__input-text" name="email-address" type="email">
+          <span id="email-address-error" class="form-field__error-msg"></span>
+        </div>
 
-          <legend>Choose a Query Type</legend>
+      </fieldset>
 
-          <div class="input-label-group">
-            <label>Query Type</label>
+      <!-- Field Query Type -->
+      <fieldset class="contact-form__fieldset">
 
-            <div class="fields-grid-row"> 
-              <label>
-                <input name="query-type" value="general-enquiry" type="radio">
-                General Enquiry 
-              </label>
+        <legend class="contact-form__fieldset-legend">Choose a Query Type</legend>
 
-              <label>
-                <input name="query-type" value="support-request" type="radio">
-                Suport Request 
-              </label>
-            </div>
+        <div class="form-field">
+          <label class="form-field__label form-field__label--required">Query Type</label>
 
-            <span id="query-types-error" class="error-message"></span>
+          <div class="contact-form__fields-grid-row"> 
+            <label class="query-type-group__option-label">
+              <input class="query-type-group__input" name="query-type" value="general-enquiry" type="radio">
+              General Enquiry 
+            </label>
+
+            <label class="query-type-group__option-label">
+              <input class="query-type-group__input" name="query-type" value="support-request" type="radio">
+              Suport Request 
+            </label>
           </div>
 
-        </fieldset>
+          <span id="query-types-error" class="form-field__error-msg"></span>
+        </div>
 
-        <!-- Field Messaage -->
-        <fieldset class="fieldset-message">
+      </fieldset>
 
-          <legend>Create A Message To Send</legend>
+      <!-- Field Messaage -->
+      <fieldset class="contact-form__fieldset">
 
-          <div class="input-label-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5"></textarea>
-            <span id="message-error" class="error-message"></span>
-          </div>
+        <legend class="contact-form__fieldset-legend">Create A Message To Send</legend>
 
-        </fieldset>
+        <div class="form-field">
+          <label for="message" class="form-field__label form-field__label--required">Message</label>
+          <textarea id="message" class="form-field__textarea" name="message" rows="5"></textarea>
+          <span id="message-error" class="form-field__error-msg"></span>
+        </div>
 
-        <!-- Field Terms and conditions -->
-        <fieldset class="fieldset-consent">
+      </fieldset>
 
-          <legend>Terms and Service</legend>
+      <!-- Field Terms and conditions -->
+      <fieldset class="contact-form__fieldset consent-group">
 
-          <div>
-            <input id="terms-and-service" name="consent" type="checkbox">
-            <label for="terms-and-service">I consent to being contacted by the team</label>
-          </div>
+        <legend class="contact-form__fieldset-legend">Terms and Services</legend>
+      
+        <div>
+          <input id="terms-and-service" class="consent-group__input" name="consent" type="checkbox">
+          <label class="form-field__label form-field__label--required" for="terms-and-service">I consent to being contacted by the team</label>
+        </div>
 
-          <span id="terms-and-service-error" class="error-message"></span>
+        <span id="terms-and-service-error" class="form-field__error-msg"></span>
 
-        </fieldset>
-    
-        <button type="submit">Submit</button>
-      </form>
-
-      <aside class="success-message">Thanks for completing the form. We'll be in touch soon!</aside>
-    </section>
-
-    
+      </fieldset>
+  
+      <button class="contact-form__submit-btn" type="submit">Submit</button>
+    </form>
   </main>
 
   <footer>
