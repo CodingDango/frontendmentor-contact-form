@@ -230,7 +230,7 @@ function validateForm()
 }
 
 document.querySelector(".contact-form")
-.contact_form.addEventListener("submit", function(event) {
+.addEventListener("submit", function(event) {
     // Prevent submitting of form for now
     event.preventDefault();
     if (validateForm())
