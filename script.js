@@ -229,19 +229,10 @@ function validateForm()
     return isFormValid;
 }
 
-  // Our form
-const contact_form = document.querySelector(".contact-form");
-
-contact_form.addEventListener("submit", function(event) {
+document.querySelector(".contact-form")
+.contact_form.addEventListener("submit", function(event) {
+    // Prevent submitting of form for now
     event.preventDefault();
-    if (!validateForm())
-    {
-        event.preventDefault();
-    }
-    else
-    {
+    if (validateForm())
         playSuccessAnimations();
-    }
 });
-
-// playSuccessAnimations();
