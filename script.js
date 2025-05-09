@@ -38,6 +38,17 @@ const fields_data = [
     },
 ]
 
+function playSuccessAnimation()
+{
+    confetti({
+        particleCount: 100,
+        angle: 270,
+        spread: 180,
+        origin: { y: -0.1 },
+        startVelocity: 35
+    });
+}
+
 function isValidEmail(emailString)
 { 
     // Source? google.
@@ -172,12 +183,15 @@ function validateForm()
 const contact_form = document.querySelector(".contact-form");
 
 contact_form.addEventListener("submit", function(event) {
+    event.preventDefault();
     if (!validateForm())
     {
         event.preventDefault();
     }
     else
     {
-        // Do a thank you animation later.
+        playSuccessAnimation();
     }
 });
+
+playSuccessAnimation();

@@ -16,46 +16,42 @@
 
         <!-- Field User Info -->
         <fieldset class="fieldset-user-info">
+
           <legend>Your Information</legend>
 
           <div class="fields-grid-row">
-            <div class="input-label-group">
-              <!--"This field is required"-->
 
+            <div class="input-label-group">
               <label for="first-name">First Name</label>
               <input id="first-name" name="first-name" type="text">
               <span id="first-name-error" class="error-message"></span>
-
             </div>
 
             <div class="input-label-group">
-              <!--"This field is required"-->
               <label for="last-name">Last Name</label>
               <input id="last-name" name="last-name" type="text">
               <span id="last-name-error" class="error-message"></span>
-
             </div>
+
           </div>
 
           <div class="input-label-group" data-error="my custom error message">
-            <!-- Please enter a valid email address -->
-            <!-- This field is required -->
             <label for="email-address">Email Address</label>
             <input id="email-address" name="email-address"type="email">
             <span id="email-address-error" class="error-message"></span>
-
           </div>
+
         </fieldset>
 
         <!-- Field Query Type -->
         <fieldset class="fieldset-query-type">
+
           <legend>Choose a Query Type</legend>
 
-          <!--  Please select a query type -->
           <div class="input-label-group">
             <label>Query Type</label>
-            <div class="fields-grid-row">
-              
+
+            <div class="fields-grid-row"> 
               <label>
                 <input name="query-type" value="general-enquiry" type="radio">
                 General Enquiry 
@@ -69,33 +65,43 @@
 
             <span id="query-types-error" class="error-message"></span>
           </div>
+
         </fieldset>
 
         <!-- Field Messaage -->
         <fieldset class="fieldset-message">
+
           <legend>Create A Message To Send</legend>
+
           <div class="input-label-group">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5"></textarea>
             <span id="message-error" class="error-message"></span>
           </div>
+
         </fieldset>
 
         <!-- Field Terms and conditions -->
         <fieldset class="fieldset-consent">
+
           <legend>Terms and Service</legend>
+
           <div>
             <input id="terms-and-service" name="consent" type="checkbox">
             <label for="terms-and-service">I consent to being contacted by the team</label>
           </div>
+
           <span id="terms-and-service-error" class="error-message"></span>
+
         </fieldset>
     
         <button type="submit">Submit</button>
       </form>
-      <!-- Message Sent!
-      Thanks for completing the form. We'll be in touch soon! -->
+
+      <aside class="success-message">Thanks for completing the form. We'll be in touch soon!</aside>
     </section>
+
+    
   </main>
 
   <footer>
@@ -105,6 +111,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="./script.js">
   </script>
 </body>

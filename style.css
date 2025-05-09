@@ -17,13 +17,17 @@
     --outline-focus-color: #1CC52C;
 }
 
+/*-- Frontendmentor attribution --*/
+
 .attribution { 
-    font-size: 11px; text-align: center; 
+    font-size: 0.8rem; text-align: center; 
 }
 
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
+
+/*-- Reset styles | Base styles --*/
 
 * {
     box-sizing: border-box;
@@ -57,16 +61,8 @@ section {
     align-items: center;
 }
 
-footer {
-    
-    
-}
 
-/*
-=====================================
--- Contact Form Classes
-=====================================
-*/
+/*-- Contact form styles --*/
 
 .contact-form {
     width: min(800px, 100%);
@@ -85,6 +81,25 @@ footer {
 .contact-form h2 {
     font-size: 2rem;
     font-weight: 700;
+}
+
+
+/*
+=====================================
+ Success Message
+=====================================
+*/
+
+.success-message {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    max-width: 300px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--primary-dark-grey);
+    border-radius: 20px;
+    color: var(--white);
 }
 
 
