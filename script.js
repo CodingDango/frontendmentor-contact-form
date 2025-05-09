@@ -77,18 +77,19 @@ function playSuccessAnimations()
 
     // Success message card
     let success_msg_card_html = `
-    <aside class="success-msg">
-      <span class="success-msg__head">
-        <span class="success-msg__head-content">
-          <img src="./assets/images/icon-success-check.svg">
-          <p>Message Sent!</p>
+        <aside class="success-msg">
+        <span class="success-msg__head">
+            <span class="success-msg__head-content">
+            <img src="./assets/images/icon-success-check.svg">
+            <p>Message Sent!</p>
+            </span>
+            <img class="success-msg__close" src="./assets/images/close.webp">
         </span>
-        <img class="success-msg__close" src="./assets/images/close.webp">
-      </span>
-      <p>Thanks for completing the form. We'll be in touch soon!</p>
-    </aside>`
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+        </aside>`
 
-    document.querySelector("main").insertAdjacentHTML("afterbegin", success_msg_card_html);
+    document.querySelector("main")
+    .insertAdjacentHTML("afterbegin", success_msg_card_html);
 
     document.querySelector("main")
     .querySelector(".success-msg__close")
