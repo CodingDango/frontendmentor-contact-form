@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: "Karla";
     src: url("./assets/fonts/Karla-VariableFont_wght.ttf");
@@ -18,7 +17,6 @@
 }
 
 /*-- Frontendmentor attribution --*/
-
 .attribution { 
     font-size: 0.8rem; text-align: center; 
 }
@@ -27,8 +25,8 @@
     color: hsl(228, 45%, 44%); 
 }
 
-/*-- Reset styles | Base styles --*/
 
+/*-- Reset styles | Base styles --*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -62,81 +60,77 @@ section {
 }
 
 
-/*-- Contact form styles --*/
+/*
+=====================================
+-- Component: Contact Form
+=====================================
+*/
 
-.contact-form {
+.contact-form { /* Block */
     width: min(800px, 100%);
     height: auto;
-
     border-radius: 10px;
     padding: 40px 30px;
     background-color: var(--white);
-
     display: flex;
     flex-direction: column;
     justify-content: start;    
     gap: 1.5rem;
 }
 
-.contact-form h2 {
+.contact-form__title { /* Element */
     font-size: 2rem;
     font-weight: 700;
 }
 
-
-/*
-=====================================
- Success Message
-=====================================
-*/
-
-.success-message {
-    position: fixed;
-    top: 40px;
-    width: 100%;
-    max-width: 300px;
-    padding: 40px 20px;
-    text-align: center;
-    background-color: var(--primary-dark-grey);
-    border-radius: 20px;
-    color: var(--white);
-}
-
-
-/*
-=====================================
- Input Classes
-=====================================
-*/
-
-.contact-form button {
+.contact-form__submit_btn { /* Element */
     height: 3rem;
-
     color: white;
     background-color: var(--primary-medium-green);
     border: 0;
     border-radius: 10px;
-
     transition: 0.25s background-color ease-out;
     cursor: pointer;
 }
 
-.contact-form .input-label-group > label {
+.contact-form__submit_btn:hover,
+.contact-form__submit_btn:focus {
+    background-color: var(--primary-dark-green);
+    outline:  none;
+}
+
+
+/*
+=====================================
+-- Component: Form-Field
+=====================================
+*/
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form-field__error_msg {
+    color: var(--red);
+    font-size: 0.875rem;
+}
+
+.form-field__label {
     font-weight: 500;
     color: var(--primary-dark-grey);
 }
 
-.contact-form .input-label-group > label::after,
-.contact-form .fieldset-consent label::after  {
+.form-field__label--required::after {
     content: "*";
     position: relative;
     left: 0.5rem;
     color: var(--primary-medium-green);
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.form-field__input,
+.form-field__textarea {
     border-radius: 5px;
     padding: 1rem;
     border: 1px solid var(--primary-medium-grey);
@@ -145,66 +139,38 @@ textarea {
     width: 100%;
 }
 
-
-/*
-=====================================
- Input Interactivity
-=====================================
-*/
-
-input[type="text"]:hover,
-input[type="email"]:hover,
-textarea:hover {
+.form-field__input:hover,
+.form-field__:hover {
     border-color: var(--primary-medium-green);
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
+.form-field__input:focus,
+.form-field__:focus {
     outline: none;
     border-color: var(--primary-medium-green);
 }
 
-button:hover {
-    background-color: var(--primary-dark-green);
-}
-
-button:focus {
-    outline: none;
-    background-color: var(--primary-dark-green);
-}
-
-
-/*
-=====================================
- Input Error Messages
-=====================================
-*/
-
-.error-message {
-    color: var(--red);
-}
-
-.error-state {
+/* -- Error Modifiers -- */
+.form-field__input--error,
+.form-field__textarea--error {
     border-color: var(--red) !important;
 }
 
 
 /*
-=====================================
-Individual Fieldset Classes
-=====================================
+===========================================
+Contact Form Individual Fieldsets and Layout
+============================================
 */
 
-fieldset {
+.contact-form__fieldset {
     border: 0;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-
-fieldset legend 
-{
+ 
+.contact-form__fieldset__legend {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -212,30 +178,26 @@ fieldset legend
     white-space: nowrap;
 }
 
-.fields-grid-row {
+.contact-form__fields-grid-row {
     display: grid;
-    grid-template-columns: 48% 48%;
-    gap: 4%;
-}
-
-.input-label-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); /* More responsive grid */
+    /* grid-template-columns: 48% 48%; /* Original */
+    /* gap: 4%; */
+    gap: 1.5rem; /* Consistent gap */
 }
 
 
 /*
-=====================================
-Fieldset Query Type Classes
-=====================================
+=========================================================
+Component: Fieldset Group Query Type (inside Contact Form)
+=========================================================
 */
 
-.fieldset-query-type .fields-grid-row {
+.query-type-group  {
     grid-template-rows: 3rem;
 }
 
-.fieldset-query-type .fields-grid-row label {
+.query-type-group__option-label {
     height: 3rem;
     cursor: pointer;
 
@@ -254,16 +216,16 @@ Fieldset Query Type Classes
     transition: 0.25s all;
 }
 
-.fieldset-query-type .fields-grid-row label:focus-within {
+.query-type-group__option-label:focus-within {
     border-color: var(--primary-medium-green);
     background-color: var(--primary-light-green);
 }
 
-.fieldset-query-type .fields-grid-row label:hover {
+.query-type-group__option-label:hover {
     border-color: var(--primary-medium-green);
 }
 
-.fieldset-query-type input {
+.query-type-group__input {
     outline: none;
     accent-color: var(--primary-medium-green);
     scale: 1.2;
@@ -271,35 +233,37 @@ Fieldset Query Type Classes
 
 
 /*
-=====================================
-Fieldset Consent Classes
-=====================================
+===================================================================
+Component: Terms and service consent fieldset (Inside Contact Form)
+===================================================================
 */
 
-.fieldset-consent {
+.consent-group {
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
     gap: 0.75rem;
 }
 
-.fieldset-consent div {
+.consent-group div {
     display: flex;
     gap: 1rem;
 }
 
-.fieldset-consent input {
+.consent-group__input {
     accent-color: var(--primary-medium-green);
     scale: 1.3;
 }
 
+
 /*
 =====================================
-Interactivity..
+Media Queries For Responsiveness
 =====================================
 */
+
 @media (max-width: 576px) {
-    .fields-grid-row {
+    .contact-form__fields-grid-row {
         display: flex;
         flex-direction: column;
         gap: inherit;   
@@ -311,8 +275,7 @@ Interactivity..
         padding: 20px 20px;
     }
     
-    .fieldset-query-type .fields-grid-row label {
+    .query-type-group__option-label {
         padding-left: 1rem;
     }
-     
 }
